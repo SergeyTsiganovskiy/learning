@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33C4D077-69B6-42D0-856F-FB94CF07BF96}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp2</RootNamespace>
+    <AssemblyName>ConsoleApp2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fundamentals\AggregatingData.cs" />
+    <Compile Include="Fundamentals\Car.cs" />
+    <Compile Include="Fundamentals\GroupingData.cs" />
+    <Compile Include="Fundamentals\JoiningGroupingAggregatingMethodSyntax.cs" />
+    <Compile Include="Fundamentals\JoiningGroupingAggregating.cs" />
+    <Compile Include="Fundamentals\JoinWithCompositeKey.cs" />
+    <Compile Include="Fundamentals\Manufacturer.cs" />
+    <Compile Include="Fundamentals\ProjectingDataWithSelect.cs" />
+    <Compile Include="Fundamentals\CreatingExtensionMethods.cs" />
+    <Compile Include="Fundamentals\FilteringWithWhereAndFirst.cs" />
+    <Compile Include="Fundamentals\FuncAction.cs" />
+    <Compile Include="Fundamentals\MyLinq.cs" />
+    <Compile Include="Fundamentals\PowerOfIEnumerable.cs" />
+    <Compile Include="Fundamentals\ProcessCSVFile.cs" />
+    <Compile Include="Fundamentals\QuantifingDataWihAnyAllContains.cs" />
+    <Compile Include="InitialLinq.cs" />
+    <Compile Include="Lambda.cs" />
+    <Compile Include="lessons\Extensions.cs" />
+    <Compile Include="lessons\Aggregation.cs" />
+    <Compile Include="lessons\GroupBy.cs" />
+    <Compile Include="lessons\ThenBy.cs" />
+    <Compile Include="lessons\OrderBy.cs" />
+    <Compile Include="lessons\SelectMany.cs" />
+    <Compile Include="lessons\Select.cs" />
+    <Compile Include="w3resources\Program2.cs" />
+    <Compile Include="w3resources\Program1.cs" />
+    <Compile Include="w3resources\Program3.cs" />
+    <Compile Include="w3resources\Program6.cs" />
+    <Compile Include="w3resources\Program5.cs" />
+    <Compile Include="w3resources\Program4.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Fundamentals\fuel.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fundamentals\manufacturers.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

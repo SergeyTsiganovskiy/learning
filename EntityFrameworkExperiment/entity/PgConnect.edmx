@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mc_customers_amgen_model.Store" Provider="Npgsql" ProviderManifestToken="9.4.13" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6005: The data type '_text' is currently not supported for the target Entity Framework version; the column 'plan_matching' in the table 'mc_customers_amgen.public.customers' was excluded.-->
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="text" Nullable="false" />
+          <Property Name="name" Type="text" />
+          <Property Name="address1" Type="text" />
+          <Property Name="address2" Type="text" />
+          <Property Name="state" Type="text" />
+          <Property Name="city" Type="text" />
+          <Property Name="zip" Type="text" />
+        </EntityType>
+        <EntityType Name="plans">
+          <Key>
+            <PropertyRef Name="effective_date" />
+            <PropertyRef Name="plan_name" />
+            <PropertyRef Name="plan_id" />
+            <PropertyRef Name="formulary_id" />
+          </Key>
+          <Property Name="effective_date" Type="timestamp" Nullable="false" />
+          <Property Name="plan_name" Type="text" Nullable="false" />
+          <Property Name="plan_id" Type="text" Nullable="false" />
+          <Property Name="formulary_id" Type="text" Nullable="false" />
+          <Property Name="active" Type="bool" />
+          <Property Name="customer_id" Type="text" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="quarterly_enrollment" Type="int4" />
+          <Property Name="average_enrollment" Type="int4" />
+          <Property Name="month1_enrollment" Type="int4" />
+          <Property Name="month2_enrollment" Type="int4" />
+          <Property Name="month3_enrollment" Type="int4" />
+          <Property Name="address1" Type="text" />
+          <Property Name="address2" Type="text" />
+          <Property Name="state" Type="text" />
+          <Property Name="city" Type="text" />
+          <Property Name="zip" Type="text" />
+          <Property Name="claims_processor" Type="text" />
+          <Property Name="mail_order_vendor" Type="text" />
+          <Property Name="formulary_type" Type="text" />
+          <Property Name="number_of_tiers" Type="int4" />
+          <Property Name="plan_type" Type="text" />
+          <Property Name="copay_differentials" Type="text" />
+          <Property Name="formulary_name" Type="text" />
+          <Property Name="benefit_type" Type="text" />
+          <Property Name="benefit_plan" Type="text" />
+          <Property Name="benefit_design" Type="text" />
+          <Property Name="t2_vs_t3" Type="text" />
+          <Property Name="new_member_flag" Type="bool" />
+          <Property Name="business_segment" Type="text" />
+          <Property Name="model_type_code" Type="text" />
+          <Property Name="cms_sponsor_id" Type="text" />
+          <Property Name="cms_formulary_id" Type="text" />
+          <Property Name="plan_website_url" Type="text" />
+          <Property Name="medicaid_indicator_flag" Type="bool" />
+          <Property Name="internal_business_unit_id" Type="text" />
+        </EntityType>
+        <Association Name="plans_customer_id_fkey">
+          <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
+          <End Role="plans" Type="Self.plans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plans">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mc_customers_amgen_modelStoreContainer">
+          <EntitySet Name="customers" EntityType="Self.customers" Schema="public" store:Type="Tables" />
+          <EntitySet Name="plans" EntityType="Self.plans" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="plans_customer_id_fkey" Association="Self.plans_customer_id_fkey">
+            <End Role="customers" EntitySet="customers" />
+            <End Role="plans" EntitySet="plans" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mc_customers_amgen_model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Сustomer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Plans" Relationship="Self.plans_customer_id_fkey" FromRole="customers" ToRole="plans" />
+        </EntityType>
+        <EntityType Name="Plan">
+          <Key>
+            <PropertyRef Name="effective_date" />
+            <PropertyRef Name="plan_name" />
+            <PropertyRef Name="plan_id" />
+            <PropertyRef Name="formulary_id" />
+          </Key>
+          <Property Name="effective_date" Type="DateTime" Precision="6" Nullable="false" />
+          <Property Name="plan_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="plan_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="formulary_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="customer_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="start_date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="quarterly_enrollment" Type="Int32" />
+          <Property Name="average_enrollment" Type="Int32" />
+          <Property Name="month1_enrollment" Type="Int32" />
+          <Property Name="month2_enrollment" Type="Int32" />
+          <Property Name="month3_enrollment" Type="Int32" />
+          <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="claims_processor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mail_order_vendor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="formulary_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="number_of_tiers" Type="Int32" />
+          <Property Name="plan_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="copay_differentials" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="formulary_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="benefit_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="benefit_plan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="benefit_design" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="t2_vs_t3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="new_member_flag" Type="Boolean" />
+          <Property Name="business_segment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="model_type_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cms_sponsor_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cms_formulary_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="plan_website_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="medicaid_indicator_flag" Type="Boolean" />
+          <Property Name="internal_business_unit_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.plans_customer_id_fkey" FromRole="plans" ToRole="customers" />
+        </EntityType>
+        <Association Name="plans_customer_id_fkey">
+          <End Role="customers" Type="mc_customers_amgen_model.Сustomer" Multiplicity="0..1" />
+          <End Role="plans" Type="mc_customers_amgen_model.Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plans">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mc_customers_amgen_context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Сustomer" EntityType="mc_customers_amgen_model.Сustomer" />
+          <EntitySet Name="Plans" EntityType="mc_customers_amgen_model.Plan" />
+          <AssociationSet Name="plans_customer_id_fkey" Association="Self.plans_customer_id_fkey">
+            <End Role="customers" EntitySet="Сustomer" />
+            <End Role="plans" EntitySet="Plans" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mc_customers_amgen_modelStoreContainer" CdmEntityContainer="mc_customers_amgen_context">
+          <EntitySetMapping Name="Сustomer">
+            <EntityTypeMapping TypeName="mc_customers_amgen_model.Сustomer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plans">
+            <EntityTypeMapping TypeName="mc_customers_amgen_model.Plan">
+              <MappingFragment StoreEntitySet="plans">
+                <ScalarProperty Name="effective_date" ColumnName="effective_date" />
+                <ScalarProperty Name="plan_name" ColumnName="plan_name" />
+                <ScalarProperty Name="plan_id" ColumnName="plan_id" />
+                <ScalarProperty Name="formulary_id" ColumnName="formulary_id" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="quarterly_enrollment" ColumnName="quarterly_enrollment" />
+                <ScalarProperty Name="average_enrollment" ColumnName="average_enrollment" />
+                <ScalarProperty Name="month1_enrollment" ColumnName="month1_enrollment" />
+                <ScalarProperty Name="month2_enrollment" ColumnName="month2_enrollment" />
+                <ScalarProperty Name="month3_enrollment" ColumnName="month3_enrollment" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="claims_processor" ColumnName="claims_processor" />
+                <ScalarProperty Name="mail_order_vendor" ColumnName="mail_order_vendor" />
+                <ScalarProperty Name="formulary_type" ColumnName="formulary_type" />
+                <ScalarProperty Name="number_of_tiers" ColumnName="number_of_tiers" />
+                <ScalarProperty Name="plan_type" ColumnName="plan_type" />
+                <ScalarProperty Name="copay_differentials" ColumnName="copay_differentials" />
+                <ScalarProperty Name="formulary_name" ColumnName="formulary_name" />
+                <ScalarProperty Name="benefit_type" ColumnName="benefit_type" />
+                <ScalarProperty Name="benefit_plan" ColumnName="benefit_plan" />
+                <ScalarProperty Name="benefit_design" ColumnName="benefit_design" />
+                <ScalarProperty Name="t2_vs_t3" ColumnName="t2_vs_t3" />
+                <ScalarProperty Name="new_member_flag" ColumnName="new_member_flag" />
+                <ScalarProperty Name="business_segment" ColumnName="business_segment" />
+                <ScalarProperty Name="model_type_code" ColumnName="model_type_code" />
+                <ScalarProperty Name="cms_sponsor_id" ColumnName="cms_sponsor_id" />
+                <ScalarProperty Name="cms_formulary_id" ColumnName="cms_formulary_id" />
+                <ScalarProperty Name="plan_website_url" ColumnName="plan_website_url" />
+                <ScalarProperty Name="medicaid_indicator_flag" ColumnName="medicaid_indicator_flag" />
+                <ScalarProperty Name="internal_business_unit_id" ColumnName="internal_business_unit_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
