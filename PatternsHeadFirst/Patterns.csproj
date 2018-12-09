@@ -52,6 +52,7 @@
     <Compile Include="Observer\HeadFirst\WeatherStation.cs" />
     <Compile Include="Asynch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\DmitriiNesteruk\CopyThroughSerialization.cs" />
     <Compile Include="Specification\Demo.cs" />
     <Compile Include="Strategy\DmitriiNesteruk\Behavioral.Strategy.Dynamic.cs" />
     <Compile Include="Strategy\DmitriiNesteruk\Behavioral.Strategy.Static.cs" />
