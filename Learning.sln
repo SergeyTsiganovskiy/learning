@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "ConsoleApp2\LINQ.csproj", "{33C4D077-69B6-42D0-856F-FB94CF07BF96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "..\..\..\..\Desktop\ConsoleApps\App1\Collections.csproj", "{BECB2626-7247-4DA2-9708-E49831C53CF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "..\..\..\Desktop\ConsoleApps\App1\Collections.csproj", "{BECB2626-7247-4DA2-9708-E49831C53CF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern", "..\Queries\Queries\RepositoryPattern.csproj", "{D1776DED-C59A-4F8A-8C31-96EAE15BDF5A}"
 EndProject
@@ -20,6 +20,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQTASKBOOK", "LINQTASKBOOK\LINQTASKBOOK.csproj", "{7953191C-8978-4CAB-A1B1-5675FD9D73DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCookBook", "CSharpCookBook\CSharpCookBook.csproj", "{15FBFCFB-B062-411F-88C3-D8D67A121CF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{025BACCA-18B7-49E8-A86E-2B22614A80A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalFeatures", "FunctionalFeatures\FunctionalFeatures.csproj", "{B10A06DA-1E19-4C86-AC5E-9252EBE42E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeMoreOOCode", "MakeMoreOOCode\MakeMoreOOCode.csproj", "{EACE632E-4667-4B94-87C3-16921BE18D40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{15FBFCFB-B062-411F-88C3-D8D67A121CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15FBFCFB-B062-411F-88C3-D8D67A121CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15FBFCFB-B062-411F-88C3-D8D67A121CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025BACCA-18B7-49E8-A86E-2B22614A80A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025BACCA-18B7-49E8-A86E-2B22614A80A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025BACCA-18B7-49E8-A86E-2B22614A80A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025BACCA-18B7-49E8-A86E-2B22614A80A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10A06DA-1E19-4C86-AC5E-9252EBE42E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10A06DA-1E19-4C86-AC5E-9252EBE42E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10A06DA-1E19-4C86-AC5E-9252EBE42E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10A06DA-1E19-4C86-AC5E-9252EBE42E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACE632E-4667-4B94-87C3-16921BE18D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACE632E-4667-4B94-87C3-16921BE18D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACE632E-4667-4B94-87C3-16921BE18D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACE632E-4667-4B94-87C3-16921BE18D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
